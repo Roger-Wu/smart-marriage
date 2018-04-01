@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Crypto dAb</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Crypto dAb">
+  <meta property="og:description" content="加密貓玩膩了嗎？來玩加密寶博士。來吧！用以太幣認養寶博士，每次都將贈送一萬枚寶博士幣。送完為止喔！">
+  <meta property="og:image" content="https://roger-wu.github.io/crypto-dab/images/celebrity_1.jpg">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-101090572-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-101090572-3');
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  <!-- Material Design for Bootstrap -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+    .name-block {
+      color: rgba(255, 255, 255, 0.625);
+    }
+    .photo-block:hover .name-block {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="text-center" v-cloak>
+    <h2 class="mt-3" style="font-family: Helvetica;">{{ title }}</h2>
+    <h3 class="mb-3 text-secondary">{{ description }}</h6>
+    <div class="card text-center" style="width: 512px; margin: 0 auto; padding: 0">
+      <div style="padding: 20px 10px;">
+        <img src="images/badu.jpg" width="128" style="display: inline-block;">
+        <img src="images/arrow.png" height="128px" style="display: inline-block; margin: 16px;">
+        <!-- <span style="font-size: 32px; margin: 4px; line-height:128px">⇨</span> -->
+        <img src="images/roger.jpg" width="128" style="display: inline-block;">
+      </div>
+      <div style="padding: 20px 10px;">
+        <h6>現在持有者: {{ shortOwner }}</h6>
+        <br/>
+        <h6>求婚人: {{ shortaskman }}</h6>
+        <h6>被求婚人: {{ shortyesman }}</h6>
+        <h6>見證人: {{ shortwitness }}</h6>
+        <div v-if="owner == accountAddress">
+          <button @click="transferOwnership" class="btn btn-success active">將合約遞給</button>
+          <input type="text" v-model="addr">
+        </div>
+        <h6>訊息: {{ message }}</h6>
+      </div>
+    </div>
+    <div class="mt-5 text-secondary">
+      <h6 v-if="!isMetamaskInstalled">請
+        <a href="https://metamask.io/" target="_blank">安裝 MetaMask</a> 以完整體驗此遊戲</h6>
+      <h6>智能合約地址:
+        <a :href="'https://etherscan.io/address/' + contractAddress" target="_blank">{{ shortContractAddress }}</a>
+      </h6>
+    </div>
+  </div>
+
+  <!-- Material Design for Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+  <script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ethjs@0.3.0/dist/ethjs.min.js"></script>
+
+  <script src="src/index.js"></script>
+</body>
+
+</html>
