@@ -1,6 +1,6 @@
 const contracts = {
   ItemToken: {
-    address: '0x30d6329ce74df443a864f12e870389c4cd639d7c',
+    address: '0xDB9c98EA1782Df345F75E36b8d35C265D95B2d97',
     abi: [
       {
         "constant": false,
